@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites disabled="0" errors="0" failures="0" tests="4" time="11.426">
+ <testsuite name="SignIn into the Site" timestamp="2018-09-30T22:15:57" hostname="localhost" time="11.426" errors="0" tests="4" skipped="0" disabled="0" failures="0">
+  <testcase classname="SignIn into the Site" name="Enter application" time="5.539" />
+  <testcase classname="SignIn into the Site" name="Create a task" time="1.931" />
+  <testcase classname="SignIn into the Site" name="Update a task" time="1.728" />
+  <testcase classname="SignIn into the Site" name="Delete a task" time="2.223" />
+ </testsuite>
+</testsuites>

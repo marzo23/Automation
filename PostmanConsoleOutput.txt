@@ -1,0 +1,319 @@
+Lanzada por el usuario user1
+Ejecutando.en el espacio de trabajo C:\Program Files (x86)\Jenkins\workspace\Newman
+[Newman] $ cmd /c call C:\WINDOWS\TEMP\jenkins6850374428252962927.bat
+
+C:\Program Files (x86)\Jenkins\workspace\Newman>cd C:\Users\L440\AppData\Roaming\npm\node_modules\newman\bin 
+
+C:\Users\L440\AppData\Roaming\npm\node_modules\newman\bin>node newman run "C:\Postman\WizelineAcademy.postman_collection.json" -e "C:\Postman\TestEnv.postman_environment.json" -g "C:\Postman\My Workspace.postman_globals.json" 
+newman
+
+WizelineAcademy
+
+â–¡ Projects Endpoint / Negative Tests
+â”” Empty POST
+  POST https://beta.todoist.com/API/v8/projects [400 Bad Request, 368B, 569ms]
+  â”Œ
+  â”‚ 'failed: 3. Validate endpoint - Validate Response Time
+  â”‚ ', { message: 'expected 569 to be below 500',
+  â”‚   showDiff: true,
+  â”‚   actual: 569,
+  â”‚   expected: 500,
+  â”‚   name: 'AssertionError',
+  â”‚   stack: 'AssertionError: expected 569 to be below 500
+  â”‚ \n    at Runnable.it (eval at <anonymous> (eval at exe
+  â”‚ c (evalmachine.<anonymous>:12023:2548)), <anonymous>:2
+  â”‚ 2:48)\n    at Runnable.run (eval at <anonymous> (eval 
+  â”‚ at exec (evalmachine.<anonymous>:12023:2548)), <anonym
+  â”‚ ous>:9:12640)\n    at PostmanBDD.it (eval at <anonymou
+  â”‚ s> (eval at exec (evalmachine.<anonymous>:12023:2548))
+  â”‚ , <anonymous>:9:7296)\n    at Runnable.describe [as fn
+  â”‚ ] (eval at <anonymous> (eval at exec (evalmachine.<ano
+  â”‚ nymous>:12023:2548)), <anonymous>:21:5)\n    at Runnab
+  â”‚ le.run (eval at <anonymous> (eval at exec (evalmachine
+  â”‚ .<anonymous>:12023:2548)), <anonymous>:9:12640)\n    a
+  â”‚ t PostmanBDD.describe (eval at <anonymous> (eval at ex
+  â”‚ ec (evalmachine.<anonymous>:12023:2548)), <anonymous>:
+  â”‚ 9:7030)\n    at eval (eval at <anonymous> (eval at exe
+  â”‚ c (evalmachine.<anonymous>:12023:2548)), <anonymous>:3
+  â”‚ :1)\n    at Object.eval (eval at exec (evalmachine.<an
+  â”‚ onymous>:12023:2548), <anonymous>:6:45)\n    at Unisco
+  â”‚ pe.exec (evalmachine.<anonymous>:12023:2583)\n    at m
+  â”‚ odule.exports (evalmachine.<anonymous>:62:538)' }
+  â””
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  1. 3. Validate endpoint - Validate Response Time (expected 569 to be below 500)
+
+â”” Empty DELETE
+  DELETE https://beta.todoist.com/API/v8/projects [405 Method Not Allowed, 307B, 270ms]
+  âˆš  1. Validate endpoint - Validate Response Status
+  âˆš  2. Validate endpoint - Validate Response Time
+
+â”” Wrong Project Id
+  GET https://beta.todoist.com/API/v8/projects/wrong [404 Not Found, 374B, 261ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” Wrong token GET
+  GET https://beta.todoist.com/API/v8/projects [403 Forbidden, 365B, 156ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” Wrong token Empty POST
+  POST https://beta.todoist.com/API/v8/projects [400 Bad Request, 368B, 139ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” Wrong token POST
+  POST https://beta.todoist.com/API/v8/projects [403 Forbidden, 365B, 212ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” New Project wrong ContentType
+  POST https://beta.todoist.com/API/v8/projects [400 Bad Request, 368B, 140ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” New Project incomplete Body
+  POST https://beta.todoist.com/API/v8/projects [400 Bad Request, 368B, 144ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” New Project wrong Body
+  POST https://beta.todoist.com/API/v8/projects [400 Bad Request, 402B, 136ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” New Project wrong Body type
+  POST https://beta.todoist.com/API/v8/projects [400 Bad Request, 368B, 261ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” New Project empty ContentType Copy
+  POST https://beta.todoist.com/API/v8/projects [400 Bad Request, 368B, 139ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â–¡ Projects Endpoint
+â”” Get all Projects
+  GET https://beta.todoist.com/API/v8/projects [200 OK, 2.33KB, 175ms]
+  âˆš  1. Validate endpoint - Validate Response Schema
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” Create New Project
+  POST https://beta.todoist.com/API/v8/projects [200 OK, 393B, 230ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Schema
+  âˆš  3. Validate endpoint - Validate Response Status
+  âˆš  4. Validate endpoint - Validate Response Time
+
+â”” Get Project
+  GET https://beta.todoist.com/API/v8/projects/2196095680 [200 OK, 393B, 186ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Schema
+  âˆš  3. Validate endpoint - Validate Response Status
+  âˆš  4. Validate endpoint - Validate Response Time
+
+â”” Update Project
+  POST https://beta.todoist.com/API/v8/projects/2196095680 [204 No Content, 261B, 179ms]
+  âˆš  1. Validate endpoint - Validate Response Status
+  âˆš  2. Validate endpoint - Validate Response Time
+
+â”” Delete Project
+  DELETE https://beta.todoist.com/API/v8/projects/2196095680 [204 No Content, 261B, 217ms]
+  âˆš  1. Validate endpoint - Validate Response Status
+  âˆš  2. Validate endpoint - Validate Response Time
+
+â–¡ Task Endpoint / Negative Tests
+â”” Empty POST
+  POST https://beta.todoist.com/API/v8/tasks [400 Bad Request, 371B, 162ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” Empty DETELE
+  DELETE https://beta.todoist.com/API/v8/tasks [405 Method Not Allowed, 307B, 140ms]
+  âˆš  1. Validate endpoint - Validate Response Status
+  âˆš  2. Validate endpoint - Validate Response Time
+
+â”” Wrong Task Id
+  GET https://beta.todoist.com/API/v8/tasks/wrong [404 Not Found, 374B, 137ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” Wrong token GET
+  GET https://beta.todoist.com/API/v8/tasks/ [404 Not Found, 374B, 141ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” Wrong token empty POST
+  POST https://beta.todoist.com/API/v8/tasks/ [404 Not Found, 374B, 137ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” Wrong token POST
+  POST https://beta.todoist.com/API/v8/tasks [403 Forbidden, 365B, 164ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” New Task empty ContentType
+  POST https://beta.todoist.com/API/v8/tasks [400 Bad Request, 371B, 139ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” New Task wrong ContentType
+  POST https://beta.todoist.com/API/v8/tasks [400 Bad Request, 371B, 139ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” New Task incomplete Body
+  POST https://beta.todoist.com/API/v8/tasks [400 Bad Request, 371B, 145ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” New Task wrong Body
+  POST https://beta.todoist.com/API/v8/tasks [400 Bad Request, 371B, 146ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” New Task wrong Body type
+  POST https://beta.todoist.com/API/v8/tasks [400 Bad Request, 404B, 142ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â–¡ Task Endpoint
+â”” Get Active Tasks
+  GET https://beta.todoist.com/API/v8/tasks [200 OK, 5.25KB, 161ms]
+  â”Œ
+  â”‚ 'failed: 1. Validate endpoint - Validate Response Sche
+  â”‚ ma', { message: 'expected false to be true',
+  â”‚   showDiff: true,
+  â”‚   actual: false,
+  â”‚   expected: true,
+  â”‚   name: 'AssertionError',
+  â”‚   stack: 'AssertionError: expected false to be true\n 
+  â”‚    at Runnable.it (eval at <anonymous> (eval at exec (
+  â”‚ evalmachine.<anonymous>:12023:2548)), <anonymous>:14:3
+  â”‚ 5)\n    at Runnable.run (eval at <anonymous> (eval at 
+  â”‚ exec (evalmachine.<anonymous>:12023:2548)), <anonymous
+  â”‚ >:9:12640)\n    at PostmanBDD.it (eval at <anonymous> 
+  â”‚ (eval at exec (evalmachine.<anonymous>:12023:2548)), <
+  â”‚ anonymous>:9:7296)\n    at Runnable.describe [as fn] (
+  â”‚ eval at <anonymous> (eval at exec (evalmachine.<anonym
+  â”‚ ous>:12023:2548)), <anonymous>:11:5)\n    at Runnable.
+  â”‚ run (eval at <anonymous> (eval at exec (evalmachine.<a
+  â”‚ nonymous>:12023:2548)), <anonymous>:9:12640)\n    at P
+  â”‚ ostmanBDD.describe (eval at <anonymous> (eval at exec 
+  â”‚ (evalmachine.<anonymous>:12023:2548)), <anonymous>:9:7
+  â”‚ 030)\n    at eval (eval at <anonymous> (eval at exec (
+  â”‚ evalmachine.<anonymous>:12023:2548)), <anonymous>:3:1)
+  â”‚ \n    at Object.eval (eval at exec (evalmachine.<anony
+  â”‚ mous>:12023:2548), <anonymous>:163:45)\n    at Uniscop
+  â”‚ e.exec (evalmachine.<anonymous>:12023:2583)\n    at mo
+  â”‚ dule.exports (evalmachine.<anonymous>:62:538)' }
+  â””
+  2. 1. Validate endpoint - Validate Response Schema (expected false to be true)
+  âˆš  2. Validate endpoint - Validate Response Status
+  âˆš  3. Validate endpoint - Validate Response Time
+
+â”” Create New Task
+  POST https://beta.todoist.com/API/v8/tasks [200 OK, 654B, 274ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Schema
+  âˆš  3. Validate endpoint - Validate Response Status
+  âˆš  4. Validate endpoint - Validate Response Time
+
+â”” Get Task
+  GET https://beta.todoist.com/API/v8/tasks/2837637874 [200 OK, 654B, 157ms]
+  âˆš  1. Validate endpoint - Validate Response Content
+  âˆš  2. Validate endpoint - Validate Response Schema
+  âˆš  3. Validate endpoint - Validate Response Status
+  âˆš  4. Validate endpoint - Validate Response Time
+
+â”” Update Task
+  POST https://beta.todoist.com/API/v8/tasks/2837637874 [204 No Content, 261B, 191ms]
+  âˆš  1. Validate endpoint - Validate Response Status
+  âˆš  2. Validate endpoint - Validate Response Time
+
+â”” Close Task
+  POST https://beta.todoist.com/API/v8/tasks/2837637874/close [204 No Content, 261B, 286ms]
+  âˆš  1. Validate endpoint - Validate Response Status
+  âˆš  2. Validate endpoint - Validate Response Time
+
+â”” Reopen Task
+  GET https://beta.todoist.com/API/v8/tasks/2837637874/reopen [405 Method Not Allowed, 302B, 139ms]
+  â”Œ
+  â”‚ 'failed: 1. Validate endpoint - Validate Response Stat
+  â”‚ us', { message: 'expected 405 to equal 204',
+  â”‚   showDiff: true,
+  â”‚   actual: 405,
+  â”‚   expected: 204,
+  â”‚   name: 'AssertionError',
+  â”‚   stack: 'AssertionError: expected 405 to equal 204\n 
+  â”‚    at Runnable.it (eval at <anonymous> (eval at exec (
+  â”‚ evalmachine.<anonymous>:12023:2548)), <anonymous>:18:3
+  â”‚ 8)\n    at Runnable.run (eval at <anonymous> (eval at 
+  â”‚ exec (evalmachine.<anonymous>:12023:2548)), <anonymous
+  â”‚ >:9:12640)\n    at PostmanBDD.it (eval at <anonymous> 
+  â”‚ (eval at exec (evalmachine.<anonymous>:12023:2548)), <
+  â”‚ anonymous>:9:7296)\n    at Runnable.describe [as fn] (
+  â”‚ eval at <anonymous> (eval at exec (evalmachine.<anonym
+  â”‚ ous>:12023:2548)), <anonymous>:17:5)\n    at Runnable.
+  â”‚ run (eval at <anonymous> (eval at exec (evalmachine.<a
+  â”‚ nonymous>:12023:2548)), <anonymous>:9:12640)\n    at P
+  â”‚ ostmanBDD.describe (eval at <anonymous> (eval at exec 
+  â”‚ (evalmachine.<anonymous>:12023:2548)), <anonymous>:9:7
+  â”‚ 030)\n    at eval (eval at <anonymous> (eval at exec (
+  â”‚ evalmachine.<anonymous>:12023:2548)), <anonymous>:3:1)
+  â”‚ \n    at Object.eval (eval at exec (evalmachine.<anony
+  â”‚ mous>:12023:2548), <anonymous>:5:45)\n    at Uniscope.
+  â”‚ exec (evalmachine.<anonymous>:12023:2583)\n    at modu
+  â”‚ le.exports (evalmachine.<anonymous>:62:538)' }
+  â””
+  3. 1. Validate endpoint - Validate Response Status (expected 405 to equal 204)
+  âˆš  2. Validate endpoint - Validate Response Time
+
+â”” Delete Task
+  DELETE https://beta.todoist.com/API/v8/tasks/2837637874 [204 No Content, 261B, 278ms]
+  âˆš  1. Validate endpoint - Validate Response Status
+  âˆš  2. Validate endpoint - Validate Response Time
+
+  #  failure         detail                                                                       
+                                                                                                  
+ 1.  AssertionError  3. Validate endpoint - Validate Response Time (expected 569 to be below 500) 
+                     expected false to be truthy                                                  
+                     at assertion:2 in test-script                                                
+                     inside "Projects Endpoint / Negative Tests / Empty POST"                     
+                                                                                                  
+ 2.  AssertionError  1. Validate endpoint - Validate Response Schema (expected false to be true)  
+                     expected false to be truthy                                                  
+                     at assertion:0 in test-script                                                
+                     inside "Task Endpoint / Get Active Tasks"                                    
+                                                                                                  
+ 3.  AssertionError  1. Validate endpoint - Validate Response Status (expected 405 to equal 204)  
+                     expected false to be truthy                                                  
+                     at assertion:0 in test-script                                                
+                     inside "Task Endpoint / Reopen Task"                                         
+
+C:\Users\L440\AppData\Roaming\npm\node_modules\newman\bin>exit 1 
+Build step 'Ejecutar un comando de Windows' marked build as failure
+Finished: FAILURE

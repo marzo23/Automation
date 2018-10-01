@@ -1,0 +1,2479 @@
+{
+	"info": {
+		"_postman_id": "78b81077-27d8-468c-9452-4d8feea431d6",
+		"name": "WizelineAcademy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Projects Endpoint",
+			"item": [
+				{
+					"name": "Negative Tests",
+					"item": [
+						{
+							"name": "Empty POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "64ef751e-ed2d-4301-bd7a-ca9f53ee70d5",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Empty name\", 400, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "95fb446d-7506-4fe6-b74a-70a8009609bb",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/projects",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Empty DELETE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "feb57440-fbf4-47cf-9782-b4ffdc835bba",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, null, 405, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "95fb446d-7506-4fe6-b74a-70a8009609bb",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/projects",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Wrong Project Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6820f241-ac7f-4f51-ab9f-3e33b8c92400",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"404 page not found\", 404, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "95fb446d-7506-4fe6-b74a-70a8009609bb",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/projects/wrong",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"projects",
+										"wrong"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Wrong token GET",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "50723681-29e2-4810-8044-e1474fb19106",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Forbidden\", 403, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "95fb446d-7506-4fe6-b74a-70a8009609bb",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "wrong",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/projects",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Wrong token Empty POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "98c074b3-fef3-46cc-bdca-5937cc0a0fa9",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Empty name\", 400, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "95fb446d-7506-4fe6-b74a-70a8009609bb",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "wrong",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/projects",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Wrong token POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "50723681-29e2-4810-8044-e1474fb19106",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Forbidden\", 403, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "95fb446d-7506-4fe6-b74a-70a8009609bb",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "wrong",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"holi\"\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/projects",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Project wrong ContentType",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b5c6af91-7f25-44a1-b10a-dbcbc4b9489e",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"pm.environment.set(\"projectId\", response.body.id);",
+											"",
+											"let requestBody =   {",
+											"                    \t\"name\": \"holi\"",
+											"                    }",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Empty name\", 400, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "1529960d-ca12-438a-bb96-628a5b73ee74",
+										"type": "text/javascript",
+										"exec": [
+											"let schema = {",
+											"  \"definitions\": {},",
+											"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+											"  \"$id\": \"http://example.com/root.json\",",
+											"  \"type\": \"object\",",
+											"  \"title\": \"The Root Schema\",",
+											"  \"required\": [",
+											"    \"id\",",
+											"    \"name\",",
+											"    \"order\",",
+											"    \"indent\",",
+											"    \"comment_count\"",
+											"  ],",
+											"  \"properties\": {",
+											"    \"id\": {",
+											"      \"$id\": \"#/properties/id\",",
+											"      \"type\": \"integer\",",
+											"      \"title\": \"The Id Schema\",",
+											"      \"default\": 0,",
+											"      \"examples\": [",
+											"        2196074904",
+											"      ]",
+											"    },",
+											"    \"name\": {",
+											"      \"$id\": \"#/properties/name\",",
+											"      \"type\": \"string\",",
+											"      \"title\": \"The Name Schema\",",
+											"      \"default\": \"\",",
+											"      \"examples\": [",
+											"        \"holi\"",
+											"      ],",
+											"      \"pattern\": \"^(.*)$\"",
+											"    },",
+											"    \"order\": {",
+											"      \"$id\": \"#/properties/order\",",
+											"      \"type\": \"integer\",",
+											"      \"title\": \"The Order Schema\",",
+											"      \"default\": 0,",
+											"      \"examples\": [",
+											"        10",
+											"      ]",
+											"    },",
+											"    \"indent\": {",
+											"      \"$id\": \"#/properties/indent\",",
+											"      \"type\": \"integer\",",
+											"      \"title\": \"The Indent Schema\",",
+											"      \"default\": 0,",
+											"      \"examples\": [",
+											"        1",
+											"      ]",
+											"    },",
+											"    \"comment_count\": {",
+											"      \"$id\": \"#/properties/comment_count\",",
+											"      \"type\": \"integer\",",
+											"      \"title\": \"The Comment_count Schema\",",
+											"      \"default\": 0,",
+											"      \"examples\": [",
+											"        0",
+											"      ]",
+											"    }",
+											"  }",
+											"}",
+											"",
+											"",
+											"",
+											"",
+											"pm.environment.set(\"projectSchema\", schema);"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"holi\"\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/projects",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Project incomplete Body",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3a67e40f-ab08-45f5-8338-a1c59ee13179",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Empty name\", 400, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "9598e0d8-f1fb-4b44-b1eb-42977ec76a7b",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"order\": 15,\n    \"indent\": 1,\n    \"comment_count\": 0\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/projects",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Project wrong Body",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "98d5844b-998b-4ac2-95f9-f66f711ca312",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"JSON decode error: unexpected bool\", 400, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "9598e0d8-f1fb-4b44-b1eb-42977ec76a7b",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : true\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/projects",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Project wrong Body type",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8a4d2fa5-53f4-4b8e-b956-4e78a0af5a78",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Empty name\", 400, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "9598e0d8-f1fb-4b44-b1eb-42977ec76a7b",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"namee\" : \"true\"\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/projects",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Project empty ContentType Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b5c6af91-7f25-44a1-b10a-dbcbc4b9489e",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"pm.environment.set(\"projectId\", response.body.id);",
+											"",
+											"let requestBody =   {",
+											"                    \t\"name\": \"holi\"",
+											"                    }",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Empty name\", 400, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "1529960d-ca12-438a-bb96-628a5b73ee74",
+										"type": "text/javascript",
+										"exec": [
+											"let schema = {",
+											"  \"definitions\": {},",
+											"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+											"  \"$id\": \"http://example.com/root.json\",",
+											"  \"type\": \"object\",",
+											"  \"title\": \"The Root Schema\",",
+											"  \"required\": [",
+											"    \"id\",",
+											"    \"name\",",
+											"    \"order\",",
+											"    \"indent\",",
+											"    \"comment_count\"",
+											"  ],",
+											"  \"properties\": {",
+											"    \"id\": {",
+											"      \"$id\": \"#/properties/id\",",
+											"      \"type\": \"integer\",",
+											"      \"title\": \"The Id Schema\",",
+											"      \"default\": 0,",
+											"      \"examples\": [",
+											"        2196074904",
+											"      ]",
+											"    },",
+											"    \"name\": {",
+											"      \"$id\": \"#/properties/name\",",
+											"      \"type\": \"string\",",
+											"      \"title\": \"The Name Schema\",",
+											"      \"default\": \"\",",
+											"      \"examples\": [",
+											"        \"holi\"",
+											"      ],",
+											"      \"pattern\": \"^(.*)$\"",
+											"    },",
+											"    \"order\": {",
+											"      \"$id\": \"#/properties/order\",",
+											"      \"type\": \"integer\",",
+											"      \"title\": \"The Order Schema\",",
+											"      \"default\": 0,",
+											"      \"examples\": [",
+											"        10",
+											"      ]",
+											"    },",
+											"    \"indent\": {",
+											"      \"$id\": \"#/properties/indent\",",
+											"      \"type\": \"integer\",",
+											"      \"title\": \"The Indent Schema\",",
+											"      \"default\": 0,",
+											"      \"examples\": [",
+											"        1",
+											"      ]",
+											"    },",
+											"    \"comment_count\": {",
+											"      \"$id\": \"#/properties/comment_count\",",
+											"      \"type\": \"integer\",",
+											"      \"title\": \"The Comment_count Schema\",",
+											"      \"default\": 0,",
+											"      \"examples\": [",
+											"        0",
+											"      ]",
+											"    }",
+											"  }",
+											"}",
+											"",
+											"",
+											"",
+											"",
+											"pm.environment.set(\"projectSchema\", schema);"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"holi\"\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/projects",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get all Projects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1779e944-c84c-4e68-9aec-ad41aecf2bea",
+								"type": "text/javascript",
+								"exec": [
+									"eval(globals.postmanBDD);",
+									"",
+									"let schema ={",
+									"  \"definitions\": {},",
+									"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+									"  \"$id\": \"http://example.com/root.json\",",
+									"  \"type\": \"array\",",
+									"  \"title\": \"The Root Schema\",",
+									"  \"items\": {",
+									"    \"$id\": \"#/items\",",
+									"    \"type\": \"object\",",
+									"    \"title\": \"The Items Schema\",",
+									"    \"required\": [",
+									"      \"id\",",
+									"      \"name\",",
+									"      \"order\",",
+									"      \"indent\",",
+									"      \"comment_count\"",
+									"    ],",
+									"    \"properties\": {",
+									"      \"id\": {",
+									"        \"$id\": \"#/items/properties/id\",",
+									"        \"type\": \"integer\",",
+									"        \"title\": \"The Id Schema\",",
+									"        \"default\": 0,",
+									"        \"examples\": [",
+									"          2195457214",
+									"        ]",
+									"      },",
+									"      \"name\": {",
+									"        \"$id\": \"#/items/properties/name\",",
+									"        \"type\": \"string\",",
+									"        \"title\": \"The Name Schema\",",
+									"        \"default\": \"\",",
+									"        \"examples\": [",
+									"          \"Inbox\"",
+									"        ],",
+									"        \"pattern\": \"^(.*)$\"",
+									"      },",
+									"      \"order\": {",
+									"        \"$id\": \"#/items/properties/order\",",
+									"        \"type\": \"integer\",",
+									"        \"title\": \"The Order Schema\",",
+									"        \"default\": 0,",
+									"        \"examples\": [",
+									"          0",
+									"        ]",
+									"      },",
+									"      \"indent\": {",
+									"        \"$id\": \"#/items/properties/indent\",",
+									"        \"type\": \"integer\",",
+									"        \"title\": \"The Indent Schema\",",
+									"        \"default\": 0,",
+									"        \"examples\": [",
+									"          1",
+									"        ]",
+									"      },",
+									"      \"comment_count\": {",
+									"        \"$id\": \"#/items/properties/comment_count\",",
+									"        \"type\": \"integer\",",
+									"        \"title\": \"The Comment_count Schema\",",
+									"        \"default\": 0,",
+									"        \"examples\": [",
+									"          0",
+									"        ]",
+									"      }",
+									"    }",
+									"  }",
+									"};",
+									"",
+									"eval(pm.environment.get(\"ValidateResponse\"))(schema, null, 200, 500);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "45f5c4aa-9f52-487b-af1c-58c498ea69d8",
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"var ValidateResponse = (schema, requestBody, statusCode, expectedTime)=>{",
+									"    ",
+									"describe(\"Validate endpoint\", () =>{",
+									"    ",
+									"    if(requestBody!=null)",
+									"    it(\"Validate Response Content\", ()=>{",
+									"        expect(response.body).to.deep.include(requestBody);",
+									"    });",
+									"    ",
+									"    if(schema!=null)",
+									"    it(\"Validate Response Schema\", ()=>{",
+									"        ",
+									"        var result=tv4.validateResult(response.body, schema);",
+									"        expect(result.valid).to.be.true;",
+									"    });",
+									"    ",
+									"    it(\"Validate Response Status\", ()=>{",
+									"        expect(responseCode.code).to.equals(statusCode);",
+									"    });",
+									"    ",
+									"    it(\"Validate Response Time\", ()=>{",
+									"        expect(pm.response.responseTime).to.be.below(expectedTime);",
+									"    });",
+									"    ",
+									"});",
+									"",
+									"}",
+									"",
+									"",
+									"pm.environment.set(\"ValidateResponse\", ValidateResponse.toString());"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}API/v8/projects",
+							"host": [
+								"{{BaseURL}}API"
+							],
+							"path": [
+								"v8",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "060cbcab-2a9d-46e9-b398-2ad1be2d0d1b",
+								"type": "text/javascript",
+								"exec": [
+									"eval(globals.postmanBDD);",
+									"",
+									"pm.environment.set(\"projectId\", response.body.id);",
+									"",
+									"let requestBody =   {",
+									"                    \t\"name\": \"holi\"",
+									"                    }",
+									"",
+									"eval(pm.environment.get(\"ValidateResponse\"))(pm.environment.get(\"projectSchema\"), requestBody, 200, 500);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1529960d-ca12-438a-bb96-628a5b73ee74",
+								"type": "text/javascript",
+								"exec": [
+									"let schema = {",
+									"  \"definitions\": {},",
+									"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+									"  \"$id\": \"http://example.com/root.json\",",
+									"  \"type\": \"object\",",
+									"  \"title\": \"The Root Schema\",",
+									"  \"required\": [",
+									"    \"id\",",
+									"    \"name\",",
+									"    \"order\",",
+									"    \"indent\",",
+									"    \"comment_count\"",
+									"  ],",
+									"  \"properties\": {",
+									"    \"id\": {",
+									"      \"$id\": \"#/properties/id\",",
+									"      \"type\": \"integer\",",
+									"      \"title\": \"The Id Schema\",",
+									"      \"default\": 0,",
+									"      \"examples\": [",
+									"        2196074904",
+									"      ]",
+									"    },",
+									"    \"name\": {",
+									"      \"$id\": \"#/properties/name\",",
+									"      \"type\": \"string\",",
+									"      \"title\": \"The Name Schema\",",
+									"      \"default\": \"\",",
+									"      \"examples\": [",
+									"        \"holi\"",
+									"      ],",
+									"      \"pattern\": \"^(.*)$\"",
+									"    },",
+									"    \"order\": {",
+									"      \"$id\": \"#/properties/order\",",
+									"      \"type\": \"integer\",",
+									"      \"title\": \"The Order Schema\",",
+									"      \"default\": 0,",
+									"      \"examples\": [",
+									"        10",
+									"      ]",
+									"    },",
+									"    \"indent\": {",
+									"      \"$id\": \"#/properties/indent\",",
+									"      \"type\": \"integer\",",
+									"      \"title\": \"The Indent Schema\",",
+									"      \"default\": 0,",
+									"      \"examples\": [",
+									"        1",
+									"      ]",
+									"    },",
+									"    \"comment_count\": {",
+									"      \"$id\": \"#/properties/comment_count\",",
+									"      \"type\": \"integer\",",
+									"      \"title\": \"The Comment_count Schema\",",
+									"      \"default\": 0,",
+									"      \"examples\": [",
+									"        0",
+									"      ]",
+									"    }",
+									"  }",
+									"}",
+									"",
+									"",
+									"",
+									"",
+									"pm.environment.set(\"projectSchema\", schema);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"holi\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}API/v8/projects",
+							"host": [
+								"{{BaseURL}}API"
+							],
+							"path": [
+								"v8",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7595cc4e-c004-488b-b154-17c7068de899",
+								"type": "text/javascript",
+								"exec": [
+									"eval(globals.postmanBDD);",
+									"",
+									"eval(pm.environment.get(\"ValidateResponse\"))(pm.environment.get(\"projectSchema\"), ",
+									"                                            { \"id\":  pm.environment.get(\"projectId\") }, 200, 500);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}API/v8/projects/{{projectId}}",
+							"host": [
+								"{{BaseURL}}API"
+							],
+							"path": [
+								"v8",
+								"projects",
+								"{{projectId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ca886847-2e82-4429-97ee-380e2796b1c1",
+								"type": "text/javascript",
+								"exec": [
+									"let requestBody =   {",
+									"                        \"id\":  pm.environment.get(\"projectId\"),",
+									"                    \t\"name\": \"holi 2\"",
+									"                    }",
+									"                    ",
+									"eval(globals.postmanBDD);",
+									"",
+									"eval(pm.environment.get(\"ValidateResponse\"))(null, null, 204, 500);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"holi 2\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}API/v8/projects/{{projectId}}",
+							"host": [
+								"{{BaseURL}}API"
+							],
+							"path": [
+								"v8",
+								"projects",
+								"{{projectId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "43001e65-96cb-4619-a612-ad84c7125c31",
+								"type": "text/javascript",
+								"exec": [
+									"eval(globals.postmanBDD);",
+									"",
+									"eval(pm.environment.get(\"ValidateResponse\"))(null, null, 204, 500);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}API/v8/projects/{{projectId}}",
+							"host": [
+								"{{BaseURL}}API"
+							],
+							"path": [
+								"v8",
+								"projects",
+								"{{projectId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task Endpoint",
+			"item": [
+				{
+					"name": "Negative Tests",
+					"item": [
+						{
+							"name": "Empty POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bfa4d142-734c-4b63-9bee-c1133d48335d",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Empty content\", 400, 500);"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/tasks",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Empty DETELE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b3e6b05b-7950-4a4f-a7ec-b2696ccf272a",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, null, 405, 500);"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/tasks",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Wrong Task Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c46c92a5-083f-45fe-9dec-562970dea271",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"404 page not found\", 404, 500);"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/tasks/wrong",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"tasks",
+										"wrong"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Wrong token GET",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c46c92a5-083f-45fe-9dec-562970dea271",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"404 page not found\", 404, 500);"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "wrong",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/tasks/",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Wrong token empty POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c46c92a5-083f-45fe-9dec-562970dea271",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"404 page not found\", 404, 500);"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "wrong",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/tasks/",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Wrong token POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3526c834-cc2e-4f48-a014-824650ee73d8",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Forbidden\", 403, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "4bb3a981-5254-4b86-854b-b7e0d00e6efe",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "wrong",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"content\": \"Appointment with Maria\",\n\t\"due_string\": \"tomorrow at 12:00\",\n\t\"due_lang\": \"en\",\n\t\"priority\": 4\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/tasks",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Task empty ContentType",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1f896b93-f4cb-4c71-b975-2791a3c7bae0",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Empty content\", 400, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "4bb3a981-5254-4b86-854b-b7e0d00e6efe",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"content\": \"Appointment with Maria\",\n\t\"due_string\": \"tomorrow at 12:00\",\n\t\"due_lang\": \"en\",\n\t\"priority\": 4\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/tasks",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Task wrong ContentType",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "29429e69-c579-4437-84f8-2ddac74ccb01",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Empty content\", 400, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "4bb3a981-5254-4b86-854b-b7e0d00e6efe",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"content\": \"Appointment with Maria\",\n\t\"due_string\": \"tomorrow at 12:00\",\n\t\"due_lang\": \"en\",\n\t\"priority\": 4\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/tasks",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Task incomplete Body",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "29429e69-c579-4437-84f8-2ddac74ccb01",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Empty content\", 400, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "4bb3a981-5254-4b86-854b-b7e0d00e6efe",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"due_string\": \"tomorrow at 12:00\",\n\t\"due_lang\": \"en\",\n\t\"priority\": 4\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/tasks",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Task wrong Body",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "29429e69-c579-4437-84f8-2ddac74ccb01",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"Empty content\", 400, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "4bb3a981-5254-4b86-854b-b7e0d00e6efe",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"contentt\": \"Appointment with Maria\",\n\t\"due_string\": \"tomorrow at 12:00\",\n\t\"due_lang\": \"en\",\n\t\"priority\": 4\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/tasks",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Task wrong Body type",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "749d7ad0-b59e-4316-b7af-eaee9ecb9457",
+										"type": "text/javascript",
+										"exec": [
+											"eval(globals.postmanBDD);",
+											"",
+											"eval(pm.environment.get(\"ValidateResponse\"))(null, \"JSON decode error: unexpected number\", 400, 500);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "4bb3a981-5254-4b86-854b-b7e0d00e6efe",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"content\": 5,\n\t\"due_string\": \"tomorrow at 12:00\",\n\t\"due_lang\": \"en\",\n\t\"priority\": 4\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}API/v8/tasks",
+									"host": [
+										"{{BaseURL}}API"
+									],
+									"path": [
+										"v8",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get Active Tasks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "730b4836-ff3c-491d-8cff-86e708295784",
+								"type": "text/javascript",
+								"exec": [
+									"eval(globals.postmanBDD);",
+									"",
+									"let schema = {",
+									"  \"definitions\": {},",
+									"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+									"  \"$id\": \"http://example.com/root.json\",",
+									"  \"type\": \"array\",",
+									"  \"title\": \"The Root Schema\",",
+									"  \"items\": {",
+									"    \"$id\": \"#/items\",",
+									"    \"type\": \"object\",",
+									"    \"title\": \"The Items Schema\",",
+									"    \"required\": [",
+									"      \"id\",",
+									"      \"project_id\",",
+									"      \"content\",",
+									"      \"completed\",",
+									"      \"label_ids\",",
+									"      \"order\",",
+									"      \"indent\",",
+									"      \"priority\",",
+									"      \"comment_count\",",
+									"      \"due\",",
+									"      \"url\"",
+									"    ],",
+									"    \"properties\": {",
+									"      \"id\": {",
+									"        \"$id\": \"#/items/properties/id\",",
+									"        \"type\": \"integer\",",
+									"        \"title\": \"The Id Schema\",",
+									"        \"default\": 0,",
+									"        \"examples\": [",
+									"          2826223705",
+									"        ]",
+									"      },",
+									"      \"project_id\": {",
+									"        \"$id\": \"#/items/properties/project_id\",",
+									"        \"type\": \"integer\",",
+									"        \"title\": \"The Project_id Schema\",",
+									"        \"default\": 0,",
+									"        \"examples\": [",
+									"          2195457214",
+									"        ]",
+									"      },",
+									"      \"content\": {",
+									"        \"$id\": \"#/items/properties/content\",",
+									"        \"type\": \"string\",",
+									"        \"title\": \"The Content Schema\",",
+									"        \"default\": \"\",",
+									"        \"examples\": [",
+									"          \"hjk\"",
+									"        ],",
+									"        \"pattern\": \"^(.*)$\"",
+									"      },",
+									"      \"completed\": {",
+									"        \"$id\": \"#/items/properties/completed\",",
+									"        \"type\": \"boolean\",",
+									"        \"title\": \"The Completed Schema\",",
+									"        \"default\": false,",
+									"        \"examples\": [",
+									"          false",
+									"        ]",
+									"      },",
+									"      \"label_ids\": {",
+									"        \"$id\": \"#/items/properties/label_ids\",",
+									"        \"type\": \"array\",",
+									"        \"title\": \"The Label_ids Schema\"",
+									"      },",
+									"      \"order\": {",
+									"        \"$id\": \"#/items/properties/order\",",
+									"        \"type\": \"integer\",",
+									"        \"title\": \"The Order Schema\",",
+									"        \"default\": 0,",
+									"        \"examples\": [",
+									"          3",
+									"        ]",
+									"      },",
+									"      \"indent\": {",
+									"        \"$id\": \"#/items/properties/indent\",",
+									"        \"type\": \"integer\",",
+									"        \"title\": \"The Indent Schema\",",
+									"        \"default\": 0,",
+									"        \"examples\": [",
+									"          1",
+									"        ]",
+									"      },",
+									"      \"priority\": {",
+									"        \"$id\": \"#/items/properties/priority\",",
+									"        \"type\": \"integer\",",
+									"        \"title\": \"The Priority Schema\",",
+									"        \"default\": 0,",
+									"        \"examples\": [",
+									"          1",
+									"        ]",
+									"      },",
+									"      \"comment_count\": {",
+									"        \"$id\": \"#/items/properties/comment_count\",",
+									"        \"type\": \"integer\",",
+									"        \"title\": \"The Comment_count Schema\",",
+									"        \"default\": 0,",
+									"        \"examples\": [",
+									"          0",
+									"        ]",
+									"      },",
+									"      \"due\": {",
+									"        \"$id\": \"#/items/properties/due\",",
+									"        \"type\": \"object\",",
+									"        \"title\": \"The Due Schema\",",
+									"        \"required\": [",
+									"          \"recurring\",",
+									"          \"string\",",
+									"          \"date\"",
+									"        ],",
+									"        \"properties\": {",
+									"          \"recurring\": {",
+									"            \"$id\": \"#/items/properties/due/properties/recurring\",",
+									"            \"type\": \"boolean\",",
+									"            \"title\": \"The Recurring Schema\",",
+									"            \"default\": false,",
+									"            \"examples\": [",
+									"              false",
+									"            ]",
+									"          },",
+									"          \"string\": {",
+									"            \"$id\": \"#/items/properties/due/properties/string\",",
+									"            \"type\": \"string\",",
+									"            \"title\": \"The String Schema\",",
+									"            \"default\": \"\",",
+									"            \"examples\": [",
+									"              \"Sept 22\"",
+									"            ],",
+									"            \"pattern\": \"^(.*)$\"",
+									"          },",
+									"          \"date\": {",
+									"            \"$id\": \"#/items/properties/due/properties/date\",",
+									"            \"type\": \"string\",",
+									"            \"title\": \"The Date Schema\",",
+									"            \"default\": \"\",",
+									"            \"examples\": [",
+									"              \"2018-09-22\"",
+									"            ],",
+									"            \"pattern\": \"^(.*)$\"",
+									"          }",
+									"        }",
+									"      },",
+									"      \"url\": {",
+									"        \"$id\": \"#/items/properties/url\",",
+									"        \"type\": \"string\",",
+									"        \"title\": \"The Url Schema\",",
+									"        \"default\": \"\",",
+									"        \"examples\": [",
+									"          \"https://todoist.com/showTask?id=2826223705\"",
+									"        ],",
+									"        \"pattern\": \"^(.*)$\"",
+									"      }",
+									"    }",
+									"  }",
+									"}",
+									"",
+									"eval(pm.environment.get(\"ValidateResponse\"))(schema, null, 200, 500);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}API/v8/tasks",
+							"host": [
+								"{{BaseURL}}API"
+							],
+							"path": [
+								"v8",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "72be96cf-ee1d-490f-b202-c2ed23e8cc03",
+								"type": "text/javascript",
+								"exec": [
+									"eval(globals.postmanBDD);",
+									"",
+									"pm.environment.set(\"taskId\", response.body.id);",
+									"",
+									"let requestBody = {",
+									"\t\"content\": \"Appointment with Maria\",",
+									"\t\"priority\": 4",
+									"}",
+									"",
+									"eval(pm.environment.get(\"ValidateResponse\"))(pm.environment.get(\"taskSchema\"), requestBody, 200, 500);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "475e1904-d1b5-4246-a62f-eb093ea5015a",
+								"type": "text/javascript",
+								"exec": [
+									"let taskSchema ={",
+									"  \"definitions\": {},",
+									"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+									"  \"$id\": \"http://example.com/root.json\",",
+									"  \"type\": \"object\",",
+									"  \"title\": \"The Root Schema\",",
+									"  \"required\": [",
+									"    \"id\",",
+									"    \"project_id\",",
+									"    \"content\",",
+									"    \"completed\",",
+									"    \"label_ids\",",
+									"    \"order\",",
+									"    \"indent\",",
+									"    \"priority\",",
+									"    \"comment_count\",",
+									"    \"due\"",
+									"  ],",
+									"  \"properties\": {",
+									"    \"id\": {",
+									"      \"$id\": \"#/properties/id\",",
+									"      \"type\": \"integer\",",
+									"      \"title\": \"The Id Schema\",",
+									"      \"default\": 0,",
+									"      \"examples\": [",
+									"        2837425699",
+									"      ]",
+									"    },",
+									"    \"project_id\": {",
+									"      \"$id\": \"#/properties/project_id\",",
+									"      \"type\": \"integer\",",
+									"      \"title\": \"The Project_id Schema\",",
+									"      \"default\": 0,",
+									"      \"examples\": [",
+									"        2195457214",
+									"      ]",
+									"    },",
+									"    \"content\": {",
+									"      \"$id\": \"#/properties/content\",",
+									"      \"type\": \"string\",",
+									"      \"title\": \"The Content Schema\",",
+									"      \"default\": \"\",",
+									"      \"examples\": [",
+									"        \"Appointment with Maria\"",
+									"      ],",
+									"      \"pattern\": \"^(.*)$\"",
+									"    },",
+									"    \"completed\": {",
+									"      \"$id\": \"#/properties/completed\",",
+									"      \"type\": \"boolean\",",
+									"      \"title\": \"The Completed Schema\",",
+									"      \"default\": false,",
+									"      \"examples\": [",
+									"        false",
+									"      ]",
+									"    },",
+									"    \"label_ids\": {",
+									"      \"$id\": \"#/properties/label_ids\",",
+									"      \"type\": \"array\",",
+									"      \"title\": \"The Label_ids Schema\"",
+									"    },",
+									"    \"order\": {",
+									"      \"$id\": \"#/properties/order\",",
+									"      \"type\": \"integer\",",
+									"      \"title\": \"The Order Schema\",",
+									"      \"default\": 0,",
+									"      \"examples\": [",
+									"        4",
+									"      ]",
+									"    },",
+									"    \"indent\": {",
+									"      \"$id\": \"#/properties/indent\",",
+									"      \"type\": \"integer\",",
+									"      \"title\": \"The Indent Schema\",",
+									"      \"default\": 0,",
+									"      \"examples\": [",
+									"        1",
+									"      ]",
+									"    },",
+									"    \"priority\": {",
+									"      \"$id\": \"#/properties/priority\",",
+									"      \"type\": \"integer\",",
+									"      \"title\": \"The Priority Schema\",",
+									"      \"default\": 0,",
+									"      \"examples\": [",
+									"        4",
+									"      ]",
+									"    },",
+									"    \"comment_count\": {",
+									"      \"$id\": \"#/properties/comment_count\",",
+									"      \"type\": \"integer\",",
+									"      \"title\": \"The Comment_count Schema\",",
+									"      \"default\": 0,",
+									"      \"examples\": [",
+									"        0",
+									"      ]",
+									"    },",
+									"    \"due\": {",
+									"      \"$id\": \"#/properties/due\",",
+									"      \"type\": \"object\",",
+									"      \"title\": \"The Due Schema\",",
+									"      \"required\": [",
+									"        \"recurring\",",
+									"        \"string\",",
+									"        \"date\",",
+									"        \"datetime\",",
+									"        \"timezone\"",
+									"      ],",
+									"      \"properties\": {",
+									"        \"recurring\": {",
+									"          \"$id\": \"#/properties/due/properties/recurring\",",
+									"          \"type\": \"boolean\",",
+									"          \"title\": \"The Recurring Schema\",",
+									"          \"default\": false,",
+									"          \"examples\": [",
+									"            false",
+									"          ]",
+									"        },",
+									"        \"string\": {",
+									"          \"$id\": \"#/properties/due/properties/string\",",
+									"          \"type\": \"string\",",
+									"          \"title\": \"The String Schema\",",
+									"          \"default\": \"\",",
+									"          \"examples\": [",
+									"            \"tomorrow at 12:00\"",
+									"          ],",
+									"          \"pattern\": \"^(.*)$\"",
+									"        },",
+									"        \"date\": {",
+									"          \"$id\": \"#/properties/due/properties/date\",",
+									"          \"type\": \"string\",",
+									"          \"title\": \"The Date Schema\",",
+									"          \"default\": \"\",",
+									"          \"examples\": [",
+									"            \"2018-10-01\"",
+									"          ],",
+									"          \"pattern\": \"^(.*)$\"",
+									"        },",
+									"        \"datetime\": {",
+									"          \"$id\": \"#/properties/due/properties/datetime\",",
+									"          \"type\": \"string\",",
+									"          \"title\": \"The Datetime Schema\",",
+									"          \"default\": \"\",",
+									"          \"examples\": [",
+									"            \"2018-10-01T12:00:00Z\"",
+									"          ],",
+									"          \"pattern\": \"^(.*)$\"",
+									"        },",
+									"        \"timezone\": {",
+									"          \"$id\": \"#/properties/due/properties/timezone\",",
+									"          \"type\": \"string\",",
+									"          \"title\": \"The Timezone Schema\",",
+									"          \"default\": \"\",",
+									"          \"examples\": [",
+									"            \"UTC-05:00\"",
+									"          ],",
+									"          \"pattern\": \"^(.*)$\"",
+									"        }",
+									"      }",
+									"    }",
+									"  }",
+									"}",
+									"",
+									"",
+									"",
+									"pm.environment.set(\"taskSchema\", taskSchema);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\": \"Appointment with Maria\",\n\t\"due_string\": \"tomorrow at 12:00\",\n\t\"due_lang\": \"en\",\n\t\"priority\": 4\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}API/v8/tasks",
+							"host": [
+								"{{BaseURL}}API"
+							],
+							"path": [
+								"v8",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b84900bb-cd1c-4e09-880d-c9fdc56ae452",
+								"type": "text/javascript",
+								"exec": [
+									"eval(globals.postmanBDD);",
+									"eval(pm.environment.get(\"ValidateResponse\"))(pm.environment.get(\"taskSchema\"), ",
+									"                                            {\"id\": pm.environment.get(\"taskId\")}, 200, 500);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}API/v8/tasks/{{taskId}}",
+							"host": [
+								"{{BaseURL}}API"
+							],
+							"path": [
+								"v8",
+								"tasks",
+								"{{taskId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e206b8a8-bddb-436d-b0d2-cedd318e416e",
+								"type": "text/javascript",
+								"exec": [
+									"eval(globals.postmanBDD);",
+									"eval(pm.environment.get(\"ValidateResponse\"))(null, null, 204, 500);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\": \"holi\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}API/v8/tasks/{{taskId}}",
+							"host": [
+								"{{BaseURL}}API"
+							],
+							"path": [
+								"v8",
+								"tasks",
+								"{{taskId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Close Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f1835b61-10f2-4766-9082-01c194da16e9",
+								"type": "text/javascript",
+								"exec": [
+									"eval(globals.postmanBDD);",
+									"eval(pm.environment.get(\"ValidateResponse\"))(null, null, 204, 500);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}API/v8/tasks/{{taskId}}/close",
+							"host": [
+								"{{BaseURL}}API"
+							],
+							"path": [
+								"v8",
+								"tasks",
+								"{{taskId}}",
+								"close"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reopen Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bb9dfe70-57e5-4f81-b3c1-175a4d99af37",
+								"type": "text/javascript",
+								"exec": [
+									"eval(globals.postmanBDD);",
+									"eval(pm.environment.get(\"ValidateResponse\"))(null, null, 204, 500);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}API/v8/tasks/{{taskId}}/reopen",
+							"host": [
+								"{{BaseURL}}API"
+							],
+							"path": [
+								"v8",
+								"tasks",
+								"{{taskId}}",
+								"reopen"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "114f548c-b580-4cb5-8f4e-4f02f3a85bf9",
+								"type": "text/javascript",
+								"exec": [
+									"eval(globals.postmanBDD);",
+									"eval(pm.environment.get(\"ValidateResponse\"))(null, null, 204, 500);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}API/v8/tasks/{{taskId}}",
+							"host": [
+								"{{BaseURL}}API"
+							],
+							"path": [
+								"v8",
+								"tasks",
+								"{{taskId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
