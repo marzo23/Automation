@@ -28,7 +28,7 @@ pipeline {
 ## ScreenShots
 
 ```
-![Charts img](https://octodex.github.com/images/yaktocat.png)
+![alt Charts img](https://octodex.github.com/images/yaktocat.png)
 
 ```
 
